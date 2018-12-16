@@ -52,7 +52,7 @@ class HomeViewController: UICollectionViewController {
     //MARK: Scroll View Delegate
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height + 10.0) >= scrollView.contentSize.height) {
             pageNumber += 1
             getEpisodeForPage(number: pageNumber)
         }
