@@ -37,7 +37,7 @@ class HomeViewController: UICollectionViewController {
         cell.titleLabel.text = episodesModel[indexPath.row].title
         cell.subTitleLabel.text = episodesModel[indexPath.row].subTitle
         cell.dateLabel.text = episodesModel[indexPath.row].date
-        
+        cell.row = indexPath.row
 
         if let imageURL = episodesModel[indexPath.row].smallImageUrl {
             cell.thumbnailImageView.cacheImage(url: imageURL)
@@ -52,9 +52,21 @@ class HomeViewController: UICollectionViewController {
     //MARK: Scroll View Delegate
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height + 10.0) >= scrollView.contentSize.height) {
             pageNumber += 1
             getEpisodeForPage(number: pageNumber)
+        }
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailSegue" {
+            guard let detailVC = segue.destination as? DetailViewController else {return}
+            guard let cell = sender as? HomeListTableViewCell else {return}
+
+            detailVC.episodeDescription = episodesModel[cell.row].desc
+            detailVC.imageViewUrl = episodesModel[cell.row].imageUrl
+            detailVC.episodeTitle = episodesModel[cell.row].title
         }
     }
     
