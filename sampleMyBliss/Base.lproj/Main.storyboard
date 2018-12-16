@@ -80,7 +80,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="307" height="98"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aa" translatesAutoresizingMaskIntoConstraints="NO" id="wmN-Ia-RQ5">
+                                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wmN-Ia-RQ5">
                                             <rect key="frame" x="0.0" y="0.0" width="307" height="98"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-CL-v7G">
@@ -139,7 +139,4 @@
             <point key="canvasLocation" x="16.875" y="10"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="aa" width="253.09335327148438" height="141.73228454589844"/>
-    </resources>
 </document>
