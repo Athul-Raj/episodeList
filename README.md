@@ -4,6 +4,6 @@
 
 - iOS 10.0+
 - Xcode 9+
-- Swift 4.1
+- Swift 4.2
 
 ---
