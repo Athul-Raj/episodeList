@@ -24,17 +24,25 @@ class WebService {
         
         let session = URLSession.shared
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            //print(response!)
+            
+            guard error == nil else {
+                failure(error?.localizedDescription ?? Constants.Alert.networkUnavailable)
+                return
+            }
+            guard let _ = data else {
+                failure(Constants.Alert.serverIssue)
+                return
+            }
             do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
-                if let episodes = json["data"]?["episodes"] as? NSArray {
+                let json = try JSONSerialization.jsonObject(with: data!) as? Dictionary<String, AnyObject>
+                if let episodes = json?["data"]?["episodes"] as? NSArray {
                     success(episodes)
 
                 } else{
-                    failure("Unknown Error")
+                    failure(Constants.Alert.unknownError)
                 }
             } catch {
-                failure("Unknown Error")
+                failure(Constants.Alert.unknownError)
             }
         })
         
