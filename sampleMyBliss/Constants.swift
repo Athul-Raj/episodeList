@@ -17,6 +17,8 @@ struct Constants {
     
     struct Alert {
         static let networkUnavailable = "Network Unavailable, Please try again later."
+        static let serverIssue = "Server Encountered some issue, Please try again later."
+        static let unknownError = "Unknown Error"
         
     }
 }
